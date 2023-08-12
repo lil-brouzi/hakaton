@@ -31,7 +31,7 @@ a:hover {
 	margin-top: 50px;
 	width: 100%;
 	padding-right: 50px;
-	padding-left: 200px;
+	padding-left: 50px;
 }
 
 .header__auth {
@@ -39,8 +39,9 @@ a:hover {
 	justify-content: end;
 	align-items: center;
 	float: right;
+	width: 33%;
 }
-.header__auth-btn {
+.btn {
 	display: inline-flex;
 	padding: 17px 37px;
 	justify-content: center;
@@ -56,7 +57,7 @@ a:hover {
 	font-weight: 700;
 }
 
-.header__auth-btn:hover {
+.btn:hover {
 	background: black;
 	color: white;
 }
@@ -71,6 +72,13 @@ a:hover {
 	text-transform: uppercase;
 	display: block;
 	margin: auto;
+	width: 33%;
+}
+
+.header__scores {
+	width: 33%;
+	display: flex;
+	justify-content: start;
 }
 
 
