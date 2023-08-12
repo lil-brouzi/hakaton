@@ -31,11 +31,10 @@ a:hover {
 	margin-top: 50px;
 	width: 100%;
 	padding-right: 50px;
-	padding-left: 50px;
+	padding-left: 200px;
 }
 
 .header__auth {
-	width: 40%;
 	display: flex;
 	justify-content: end;
 	align-items: center;
@@ -70,6 +69,8 @@ a:hover {
 	font-weight: 700;
 	line-height: normal;
 	text-transform: uppercase;
+	display: block;
+	margin: auto;
 }
 
 
@@ -115,6 +116,9 @@ a:hover {
 
 .content-events {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .content-event {
@@ -122,7 +126,7 @@ a:hover {
 	border: 1px solid #000;
 	background: #FFF;
 	width: 100%;
-	height: 275px;
+	min-height: 275px;
 	display: flex;
 	padding: 30px;
 	gap: 20px;
@@ -130,9 +134,11 @@ a:hover {
 }
 
 .content-event img {
-	width: 315px;
+	min-width: 220px;
+	max-width: 340px;
 	height: 220px;
 	border-radius: 20px;
+	margin: auto;
 	background: url(<path-to-image>), lightgray 50% / cover no-repeat;
 }
 
@@ -161,4 +167,86 @@ a:hover {
 .content-event__descript {
 	font-size: 16px; 
 	font-weight: 400;
+}
+
+.topbord {
+	min-width: 540px;
+	border-radius: 20px;
+	background: linear-gradient(322deg, #22B8CC 0%, #2DC496 100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.topboard__my-rating {
+	width: 370px;
+	height: 100px;
+	border-radius: 20px;
+	border: 2px solid #FFF; 
+	color: #FFF;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.my-rating {
+	font-weight: 600;
+
+}
+.topboard__title {
+	color: #FFF;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.topboard__title h2{
+	color: #FFF;
+	font-size: 36px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.topborad__users {
+	height: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+
+.topboard__user {
+	color: #FFF;
+	font-size: 24px;
+	font-weight: 600;
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.topboard__user .user__image {
+	background: white;
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+}
+
+.topboard__user .user__image img {
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+}
+
+.content-events h1 {
+	margin-bottom: 20px;
+	
 }
