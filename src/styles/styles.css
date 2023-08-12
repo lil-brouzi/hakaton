@@ -12,11 +12,6 @@
 a {
 	cursor: pointer;
 }
-#map {
-	width: 600px;
-	height: 400px;
-	background-color: #333;
-}
 
 [class*="copyrights-pane"] {
 	display: none !important;
@@ -115,7 +110,7 @@ a {
 
 .sidebar__element {
 	color: #008425 ;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 500;
 	text-decoration-line: underline;
 
@@ -145,13 +140,12 @@ a {
 	cursor: pointer;
 }
 
-.content-event img {
-	min-width: 220px;
-	max-width: 340px;
-	height: 220px;
+#map {
+	min-width: 315px;
+	min-height: 220px; 
 	border-radius: 20px;
 	margin: auto;
-	background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+	background-color: #323232;
 }
 
 .content-event-info {
@@ -170,6 +164,13 @@ a {
 }
 
 .content-event__date {
+	color: #A7A7A7;
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.content-event__address{
 	color: #A7A7A7;
 	font-size: 16px;
 	font-weight: 600;
@@ -461,4 +462,34 @@ a {
 	color: white;
 	font-size: 32px;
 	font-weight: 700;
-	}
+}
+
+.search-form {
+	width: 560px;
+	height: 55px;
+	border-radius: 50px;
+	border: 1px solid #B7B7B7; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 20px;
+}
+.search-form button {
+	background: none;
+	cursor: pointer;
+	padding-top: 2px;
+	height: 55px;
+}
+
+.search-form input{
+	width: 534px;
+	height: 53px;
+	border-radius: 50px;
+	text-decoration: none;
+	outline:none;
+	padding-left: 15px;
+}
+
+.noVisible {
+	display: none !important;
+}

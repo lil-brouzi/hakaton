@@ -1,3 +1,20 @@
+//Yandex Map
+function initMap(coordinateX,coordinateY) {
+	let map = new ymaps.Map('map', {
+		center: [coordinateX, coordinateY],
+		zoom: 13
+	});
+
+	let placemark = new ymaps.Placemark([coordinateX,coordinateY], {
+		balloonContentHeader: 'Кировский район',
+		balloonContentBody: 'бади балун',
+		balloonContentFooter: `<button>Занять</button>`
+	}, {
+
+	})
+	map.geoObjects.add(placemark)
+}
+ymaps.ready(initMap);
 // класс событий
 class Event {
     constructor(type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY) {
@@ -12,15 +29,19 @@ class Event {
 		this.coordinateY = coordinateY
            
     }
+	
 
     initContentEvent() {
         return `
 		<div class="content-event">
-			<img src="/src/assets/eventimg.png" alt="">
+			<div id='map'></div>
 			<div class="content-event-info">
 				<h2>${this.name}</h2>
 				<div class="content-event__date">
 					${this.startDate} - ${this.lastDate}
+				</div>
+				<div class="content-event__address">
+					${this.address}
 				</div>
 				<div class="content-event__descript">
 					${this.description}
@@ -76,8 +97,8 @@ class TopUser extends User {
 // Создание моделей событий
 const modelEvent =  [ 
     new Event(
-		'тип события',
-		'Название события',
+		'Сортировка мусора',
+		'Сортировка мусора',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
 		'01.01.2023',
 		'02.01.2023',
@@ -88,8 +109,8 @@ const modelEvent =  [
 		
 	),
 	new Event(
-		'тип события',
-		'Название события',
+		'Плоггинг',
+		'Плоггинг',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
 		'01.01.2023',
 		'02.01.2023',
@@ -100,8 +121,8 @@ const modelEvent =  [
 		
 	),
 	new Event(
-		'тип события',
-		'Название события',
+		'Субботник',
+		'Субботник',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
 		'01.01.2023',
 		'02.01.2023',
@@ -112,8 +133,8 @@ const modelEvent =  [
 		
 	),
 	new Event(
-		'тип события',
-		'Название события',
+		'Помощь заповедникам',
+		'Помощь заповедникам',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
 		'01.01.2023',
 		'02.01.2023',
@@ -132,44 +153,48 @@ const modelTopUser = [
 	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
 	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png')
 ]
-console.log(modelTopUser);
 function initModelToHTML(model, el) {
 	model.forEach(block => {
-		el.insertAdjacentHTML('beforeend', block.toHTML())
-		
+		if (el != null) {
+			el.insertAdjacentHTML('beforeend', block.toHTML())
+		}
 	})
 }
-// Загрузка моделей событий на страницу
-const contentEvents = document.querySelector('#content-events')
-modelEvent.forEach(block => {
-	contentEvents.insertAdjacentHTML('beforeend', block.initContentEvent())
-})
 // Загрузка модели топ пользователей
-const topboradUsers = document.querySelector('#topborad__users')
-initModelToHTML(modelTopUser, topboradUsers)
+const $topboradUsers = document.querySelector('#topborad__users')
+initModelToHTML(modelTopUser, $topboradUsers)
+
+// Загрузка моделей событий на страницу
+const $contentEvents = document.querySelector('#content-events')
+const $sortingGarbage = document.querySelector('#sortingGarbage')
+const $plogging = document.querySelector('#plogging')
+const $cleaningDay = document.querySelector('#cleaningDay')
+const $assistance = document.querySelector('#assistance')
 
 
-const myProfile = document.querySelector('#myProfile')
+modelEvent.forEach(block => {
+	if ($contentEvents != null){
+		$contentEvents.insertAdjacentHTML('beforeend', block.initContentEvent())
+	}
+})
 
 
-// Yandex Map
-let center = [56.8357751144017,60.61140330780871]
-
-function initMap() {
-	let map = new ymaps.Map('map', {
-		center: center,
-		zoom: 13
-	});
-
-	let placemark = new ymaps.Placemark([56.85930498828501,60.619874133537145], {
-		balloonContentHeader: 'Кировский район',
-		balloonContentBody: 'бади балун',
-		balloonContentFooter: `<button>Занять</button>`
-	}, {
-
+function filterEvent(sort, type) {
+	sort.addEventListener('click', () => {
+		$contentEvents.innerHTML = ''
+		modelEvent.forEach(block => {
+			if (block.type === type && $contentEvents != null) {
+				$contentEvents.insertAdjacentHTML('beforeend', block.initContentEvent())
+			}
+		})
 	})
-	map.geoObjects.add(placemark)
 }
 
-ymaps.ready(initMap);
 
+filterEvent($plogging, 'Плоггинг')
+filterEvent($sortingGarbage, 'Сортировка мусора')
+filterEvent($cleaningDay, 'Субботник')
+filterEvent($assistance, 'Помощь заповедникам')
+
+
+const $myProfile = document.querySelector('#myProfile')
