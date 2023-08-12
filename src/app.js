@@ -1,5 +1,5 @@
-
-class Event { // класс событий
+// класс событий
+class Event {
     constructor(type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY) {
         this.name = name,
         this.description = description,
@@ -25,8 +25,8 @@ class Event { // класс событий
         `
     }
 }
-
-const modelEvent =  [ // Создание моделей событий
+// Создание моделей событий
+const modelEvent =  [ 
     new Event(
 		'тип события',
 		'Название события',
@@ -45,14 +45,14 @@ const modelEvent =  [ // Создание моделей событий
 
 // Загрузка моделей событий на страницу
 const ContentEvents = document.querySelector('#content-events')
-model.forEach(block => {
+modelEvent.forEach(block => {
 	ContentEvents.insertAdjacentHTML('beforeend', block.toHTML())
 	
 })
     
 
 
-// Яндекс карта
+// Yandex Map
 let center = [56.8357751144017,60.61140330780871]
 
 function initMap() {
