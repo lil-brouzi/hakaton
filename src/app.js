@@ -30,6 +30,38 @@ class Event {
         `
     }
 }
+
+class User {
+	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
+		this.firstName = firstName,
+		this.lastName = lastName,
+		this.patronymic = patronymic,
+		this.age = age,
+		this.passportData = passportData,
+		this.avatar = avatar
+	}
+
+	toHTML() {
+		return `нет юзера`
+	}
+}
+
+class TopUser extends User {
+	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
+		super(firstName, lastName, patronymic, age, passportData, avatar)
+	}
+
+	toHTML() {
+		return `
+			<div class="topboard__user">
+				<div class="user__image">
+					<img src="${this.avatar}" alt="">
+				</div>
+				<div class="user__name">${this.lastName} ${this.firstName} ${this.patronymic}</div>
+			</div>
+		`
+	}
+}
 // Создание моделей событий
 const modelEvent =  [ 
     new Event(
@@ -80,17 +112,31 @@ const modelEvent =  [
 		'60.61140330780871'
 		
 	),
-
-
 ]
 
+const modelTopUser = [
+	new TopUser('Иван', 'Иванов', 'Иванович', '21', [], '/src/assets/eventimg.png'),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png')
+]
+console.log(modelTopUser);
+function initModelToHTML(model, el) {
+	model.forEach(block => {
+		el.insertAdjacentHTML('beforeend', block.toHTML())
+		
+	})
+}
 // Загрузка моделей событий на страницу
-const ContentEvents = document.querySelector('#content-events')
-modelEvent.forEach(block => {
-	ContentEvents.insertAdjacentHTML('beforeend', block.toHTML())
-	
-})
-    
+const contentEvents = document.querySelector('#content-events')
+initModelToHTML(modelEvent, contentEvents)
+// Загрузка модели топ пользователей
+const topboradUsers = document.querySelector('#topborad__users')
+initModelToHTML(modelTopUser, topboradUsers)
+
+
+const myProfile = document.querySelector('#myProfile')
 
 
 // Yandex Map

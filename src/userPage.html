@@ -15,11 +15,75 @@
         </div>
         <h1 class="header__title">Мой Профиль</h1>
         <div class="header__auth">
-            <button class="btn">Главное меню</button>
+            <button onclick="window.location.href = './mainPage.html'" class="btn">Главное меню</button>
         </div>
     </header>
     <div class="content">
-		
+		<div class="user-events">
+            <h2>События</h2>
+            <div class="carousel-wrapper">
+                <div class="left-arrow">
+                    <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M38.1285 2.62685C35.639 0.137397 31.6028 0.137406 29.1134 2.62687L1.86689 29.8735C-0.622559 32.3629 -0.622555 36.3991 1.8669 38.8886L29.1134 66.1351C31.6028 68.6245 35.6391 68.6245 38.1285 66.1351C40.618 63.6456 40.618 59.6094 38.1285 57.1199L15.3896 34.381L38.1285 11.642C40.618 9.15251 40.618 5.1163 38.1285 2.62685Z" fill="#D9D9D9"/>
+                    </svg>
+                </div>
+                <div class="carousel">
+                    <a id="nearest" class="carousel-event">
+                        <div class="carousel-event__tag">Ближайщее</div>
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                </div>
+                <div class="right-arrow">
+                    <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.87101 2.62685C4.36047 0.137397 8.39668 0.137406 10.8861 2.62687L38.1326 29.8735C40.6221 32.3629 40.6221 36.3991 38.1326 38.8886L10.8861 66.1351C8.39667 68.6245 4.36046 68.6245 1.871 66.1351C-0.618458 63.6456 -0.618458 59.6094 1.871 57.1199L24.6099 34.381L1.87099 11.642C-0.618463 9.15251 -0.618454 5.1163 1.87101 2.62685Z" fill="#D9D9D9"/>
+                    </svg>
+                </div>
+            </div>
+            <h2>Обращения</h2>
+            <div class="carousel-wrapper">
+                <div class="left-arrow">
+                    <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M38.1285 2.62685C35.639 0.137397 31.6028 0.137406 29.1134 2.62687L1.86689 29.8735C-0.622559 32.3629 -0.622555 36.3991 1.8669 38.8886L29.1134 66.1351C31.6028 68.6245 35.6391 68.6245 38.1285 66.1351C40.618 63.6456 40.618 59.6094 38.1285 57.1199L15.3896 34.381L38.1285 11.642C40.618 9.15251 40.618 5.1163 38.1285 2.62685Z" fill="#D9D9D9"/>
+                    </svg>
+                </div>
+                <div class="carousel">
+                    <a  class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                    <a class="carousel-event">
+                        <h3 class="carousel-event__title">Название события</h3>
+                        <div class="carousel-event__date">18.08.2023</div>
+                    </a>
+                </div>
+                <div class="right-arrow">
+                    <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.87101 2.62685C4.36047 0.137397 8.39668 0.137406 10.8861 2.62687L38.1326 29.8735C40.6221 32.3629 40.6221 36.3991 38.1326 38.8886L10.8861 66.1351C8.39667 68.6245 4.36046 68.6245 1.871 66.1351C-0.618458 63.6456 -0.618458 59.6094 1.871 57.1199L24.6099 34.381L1.87099 11.642C-0.618463 9.15251 -0.618454 5.1163 1.87101 2.62685Z" fill="#D9D9D9"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
 	</div>
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=bb199144-4af6-4998-890a-78ca7e796562&lang=ru_RU"></script>
 	<script src="./app.js"></script>

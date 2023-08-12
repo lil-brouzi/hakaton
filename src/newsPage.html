@@ -10,45 +10,16 @@
 <body>
 	
     <header class="header">
-        <h1 class="header__title">Статьи / Новости</h1>
+        <h1 class="header__title" style="width: 50% !important; margin-left: 250px;">Статьи / Новости</h1>
         <div class="header__auth">
-            <button class="btn">Мой профиль</button>
+            <button onclick="window.location.href = './userPage.html'" class="btn">Мой профиль</button>
         </div>
     </header>
     <div class="content">
         <div class="topbord">
             <div class="topboard__title"><h2>Топ-5</h2>пользователей</div>
-            <div class="topborad__users">
-                <div class="topboard__user">
-                    <div class="user__image">
-                        <img src="/src/assets/eventimg.png" alt="">
-                    </div>
-                    <div class="user__name">Пользователь 1</div>
-                </div>
-                <div class="topboard__user">
-                    <div class="user__image">
-                        <img src="/src/assets/eventimg.png" alt="">
-                    </div>
-                    <div class="user__name">Пользователь 2</div>
-                </div>
-                <div class="topboard__user">
-                    <div class="user__image">
-                        <img src="/src/assets/eventimg.png" alt="">
-                    </div>
-                    <div class="user__name">Пользователь 3</div>
-                </div>
-                <div class="topboard__user">
-                    <div class="user__image">
-                        <img src="/src/assets/eventimg.png" alt="">
-                    </div>
-                    <div class="user__name">Пользователь 4</div>
-                </div>
-                <div class="topboard__user">
-                    <div class="user__image">
-                        <img src="/src/assets/eventimg.png" alt="">
-                    </div>
-                    <div class="user__name">Пользователь 5</div>
-                </div>
+            <div id="topborad__users" class="topborad__users">
+                
             </div>
             <div class="topboard__my-rating">
                 Мое место в рейтинге:
