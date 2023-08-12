@@ -125,7 +125,6 @@ a:hover {
 	border-radius: 20px;
 	border: 1px solid #000;
 	background: #FFF;
-	width: 100%;
 	min-height: 275px;
 	display: flex;
 	padding: 30px;
@@ -249,4 +248,12 @@ a:hover {
 .content-events h1 {
 	margin-bottom: 20px;
 	
+}
+
+.all-news {
+	display: flex;
+	gap: 30px;
+	margin-left: 100px;
+	margin-right: 100px;
+	flex-wrap:y
 }
