@@ -13,23 +13,34 @@ class Event {
            
     }
 
-    toHTML() {
+    initContentEvent() {
         return `
-            <div class="content-event">
-                <img src="/src/assets/eventimg.png" alt="">
-                <div class="content-event-info">
-                    <h2>${this.name}</h2>
-                    <div class="content-event__date">
-                        ${this.startDate} - ${this.lastDate}
-                    </div>
-                    <div class="content-event__descript">
-                        ${this.description}
-                    </div>
-                </div>
-            </div>
-        `
+		<div class="content-event">
+			<img src="/src/assets/eventimg.png" alt="">
+			<div class="content-event-info">
+				<h2>${this.name}</h2>
+				<div class="content-event__date">
+					${this.startDate} - ${this.lastDate}
+				</div>
+				<div class="content-event__descript">
+					${this.description}
+				</div>
+			</div>
+		</div>
+		`
     }
+
+	initCarouselEvent() {
+		return `
+			<a  class="carousel-event">
+				<h3 class="carousel-event__title">Название события</h3>
+				<div class="carousel-event__date">18.08.2023</div>
+			</a>
+		`
+	}
 }
+
+
 
 class User {
 	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
@@ -130,7 +141,9 @@ function initModelToHTML(model, el) {
 }
 // Загрузка моделей событий на страницу
 const contentEvents = document.querySelector('#content-events')
-initModelToHTML(modelEvent, contentEvents)
+modelEvent.forEach(block => {
+	contentEvents.insertAdjacentHTML('beforeend', block.initContentEvent())
+})
 // Загрузка модели топ пользователей
 const topboradUsers = document.querySelector('#topborad__users')
 initModelToHTML(modelTopUser, topboradUsers)
