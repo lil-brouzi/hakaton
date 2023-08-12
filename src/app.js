@@ -4,7 +4,12 @@ class Event {
         this.name = name,
         this.description = description,
         this.startDate = startDate,
-        this.lastDate = lastDate
+        this.lastDate = lastDate,
+		this.type = type,
+		this.address = address,
+		this.listParticipants = listParticipants,
+		this.coordinateX = coordinateX,
+		this.coordinateY = coordinateY
            
     }
 
@@ -38,7 +43,43 @@ const modelEvent =  [
 		'56.85930498828501',
 		'60.61140330780871'
 		
-		),
+	),
+	new Event(
+		'тип события',
+		'Название события',
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
+		'01.01.2023',
+		'02.01.2023',
+		'Парковая 10',
+		[],
+		'56.85930498828501',
+		'60.61140330780871'
+		
+	),
+	new Event(
+		'тип события',
+		'Название события',
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
+		'01.01.2023',
+		'02.01.2023',
+		'Парковая 10',
+		[],
+		'56.85930498828501',
+		'60.61140330780871'
+		
+	),
+	new Event(
+		'тип события',
+		'Название события',
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
+		'01.01.2023',
+		'02.01.2023',
+		'Парковая 10',
+		[],
+		'56.85930498828501',
+		'60.61140330780871'
+		
+	),
 
 
 ]
