@@ -38,6 +38,7 @@ a {
 	display: inline-flex;
 	padding: 17px 37px;
 	justify-content: center;
+	height: 58px;
 	align-items: center;
 	border: none;
 	gap: 10px;
@@ -347,9 +348,12 @@ a {
 }
 
 .pagepeaple-menu {
-    display: block;
-    width: 330px;
+	width: 450px;
     margin: 86px auto 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .pagepeaple-menu-item-link {
@@ -357,7 +361,7 @@ a {
     width: 330px;
     padding: 15px 0;
     margin-bottom: 20px;
-
+	cursor: pointer;
     text-decoration: none;
     font-size: 24px;
     font-weight: 500;
@@ -376,7 +380,7 @@ a {
     width: 330px;
     padding: 15px 0;
     margin-bottom: 20px;
-
+	cursor: pointer;
     text-decoration: none;
     font-size: 24px;
     font-weight: 500;
@@ -529,6 +533,12 @@ a {
 
 .header-aroud .header__title {
 	margin: 0;
+	width: 50%;
+}
+
+.header-aroud .header__auth {
+	margin: 0;
+	width: 50%;
 }
 
 .create-form {
@@ -550,25 +560,29 @@ a {
 	font-weight: 400;
 }
 
-.create-form::-webkit-input-placeholder {color: #A7A7A7;
+.create-form::-webkit-input-placeholder {
+	color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-form::-moz-placeholder          {color: #A7A7A7;
+.create-form::-moz-placeholder          {
+	color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-form::-moz-placeholder           {color: #A7A7A7;
+.create-form::-moz-placeholder           {
+	color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-form::-ms-input-placeholder      {color: #A7A7A7;
+.create-form::-ms-input-placeholder      {
+	color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
@@ -585,3 +599,73 @@ a {
 	font-size: 32px;
 	font-weight: 400;
 }
+
+.menuBtn {
+	display: flex;
+	width: 178px;
+	height: 58px;
+	padding: 15px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: #B7B7B7;
+	font-size: 24px;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 50px;
+	border: 1px solid #B7B7B7;
+	margin-right: 35px;
+	cursor: pointer;
+}
+
+.menuBtn:hover {
+	color: white;
+	background: black;
+	border: none;
+}
+.auth-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.auth-form input {
+	border-bottom: solid 1px black;
+	width: 100%;
+	padding-bottom: 10px;
+	margin-bottom: 35px;
+	outline: none;
+}
+
+.auth-form ::-webkit-input-placeholder {
+	color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.auth-form::-moz-placeholder          {
+	color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.auth-form ::-moz-placeholder           {
+	color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.auth-form ::-ms-input-placeholder      {
+	color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+
+
+

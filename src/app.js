@@ -58,6 +58,32 @@ class Article {
 	}
 	
 }
+
+class TopArticle extends Article {
+	constructor(id, name, description, datePublic) {
+		super(id, name, description, datePublic)
+	}
+
+	initTopArticle() {
+		return `
+		<div class="content-event">
+			<div id='map'></div>
+			<div class="content-event-info">
+				<h2>${this.name}</h2>
+				<div class="content-event__date">
+					${this.startDate} - ${this.lastDate}
+				</div>
+				<div class="content-event__address">
+					${this.address}
+				</div>
+				<div class="content-event__descript">
+					${this.description}
+				</div>
+			</div>
+		</div>
+		`
+	}
+}
 // мои статьи подкласс
 class MyArticle extends Article {
 	constructor(id, name, description, datePublic) {
@@ -125,23 +151,26 @@ class Event {
 
 // класс юзер
 class User {
-	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
+	constructor(firstName, lastName, patronymic, age, passportData, avatar,emale, password) {
 		this.firstName = firstName, // имя
 		this.lastName = lastName, // фамилия
 		this.patronymic = patronymic, // отчество
 		this.age = age, // лет
 		this.passportData = passportData, // пасспорт данные
 		this.avatar = avatar // аватар
+		this.password = password //pass
+		this.emale =emale
 	}
 
 	toHTML() {
 		return `нет юзера`
 	}
+
 }
 // топ юзеры подкласс
 class TopUser extends User {
-	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
-		super(firstName, lastName, patronymic, age, passportData, avatar)
+	constructor(firstName, lastName, patronymic, age, passportData, avatar,emale, password) {
+		super(firstName, lastName, patronymic, age, passportData, avatar,emale, password)
 	}
 
 	toHTML() {
@@ -258,14 +287,17 @@ const modelEvent =  [
 		
 	),
 ]
+
 // модель топ юзеров
 const modelTopUser = [
-	new TopUser('Иван', 'Иванов', 'Иванович', '21', [], '/src/assets/eventimg.png'),
-	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
-	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
-	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
-	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png')
+	new TopUser('Иван', 'Иванов', 'Иванович', '21', [], '/src/assets/eventimg.png','dfhgdfhdfh', ''),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png','hdfhdfhdh', ''),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png','hdfhdfhdfh', ''),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png','hdfhdfhdfhd', ''),
+	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png','hdfhdfhdfhdfh', '')
 ]
+
+// рендер страницы
 function initModelToHTML(model, el) {
 	model.forEach(block => {
 		if (el != null) {
@@ -273,11 +305,9 @@ function initModelToHTML(model, el) {
 		}
 	})
 }
-// Загрузка модели топ пользователей
 const $topboradUsers = document.querySelector('#topborad__users')
 initModelToHTML(modelTopUser, $topboradUsers)
 
-// Загрузка моделей событий на страницу
 const $contentEvents = document.querySelector('#content-events')
 const $sortingGarbage = document.querySelector('#sortingGarbage')
 const $plogging = document.querySelector('#plogging')
@@ -331,6 +361,3 @@ filterEvent($plogging, 'Плоггинг')
 filterEvent($sortingGarbage, 'Сортировка мусора')
 filterEvent($cleaningDay, 'Субботник')
 filterEvent($assistance, 'Помощь заповедникам')
-
-
-const $myProfile = document.querySelector('#myProfile')
