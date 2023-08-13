@@ -1,23 +1,4 @@
-//Yandex Map
-const map = document.querySelector('#map')
-function initMap(coordinateX,coordinateY) {
 
-	let map = new ymaps.Map('map', {
-		center: [coordinateX, coordinateY],
-		zoom: 13
-	});
-
-	let placemark = new ymaps.Placemark([coordinateX,coordinateY], {
-		balloonContentHeader: 'Кировский район',
-		balloonContentBody: 'бади балун',
-		balloonContentFooter: `<button>Занять</button>`
-	}, {
-
-	})
-	map.geoObjects.add(placemark)
-}
-
-ymaps.ready(initMap);
 
 class Appeal {
 	constructor(hrefUser, id, hrefResponsible, status, name, description) {
@@ -102,8 +83,9 @@ class MyArticle extends Article {
 }
 // класс событий
 class Event {
-    constructor(type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY, tag) {
-        this.name = name, // название события
+    constructor(id, type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY, tag) {
+        this.id = id
+		this.name = name, // название события
         this.description = description, //текст события
         this.startDate = startDate, // дата начала
         this.lastDate = lastDate, // дата конца
@@ -118,6 +100,7 @@ class Event {
     }
 	
 	initCarouselEvent() {
+		
 		return `
 		<a id='${this.tag === 'ближайшее' ? 'nearest' : ''}' class="carousel-event">
 			<div class="carousel-event__tag">${this.tag}</div>
@@ -128,9 +111,36 @@ class Event {
 	}
 
     initContentEvent() {
+		//Yandex Map
+
+
+		ymaps.ready(() => {
+			let map = new ymaps.Map(`map${this.id}`, {
+			center: [this.coordinateX, this.coordinateY],
+			zoom: 13
+			});
+
+			map.controls.remove('geolocationControl'); // удаляем геолокацию
+			map.controls.remove('searchControl'); // удаляем поиск
+			map.controls.remove('trafficControl'); // удаляем контроль трафика
+			map.controls.remove('typeSelector'); // удаляем тип
+			map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+			map.controls.remove('zoomControl'); // удаляем контрол зуммирования
+			map.controls.remove('rulerControl'); // удаляем контрол правил
+			map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
+
+			let placemark = new ymaps.Placemark([this.coordinateX, this.coordinateY], {
+				balloonContentHeader: `${this.name}`,
+				balloonContentBody: `${this.address}`,
+				balloonContentFooter: `${this.startDate} - ${this.lastDate}`
+			}, {
+
+			})
+			map.geoObjects.add(placemark)
+		});
         return `
 		<div class="content-event">
-			<div id='map'></div>
+			<div id='map${this.id}' class='map'></div>
 			<div class="content-event-info">
 				<h2>${this.name}</h2>
 				<div class="content-event__date">
@@ -235,6 +245,7 @@ const modelAppeal = [
 // Создание моделей событий
 const modelEvent =  [ 
     new Event(
+		1,
 		'Сортировка мусора',
 		'Сортировка мусора',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
@@ -242,12 +253,13 @@ const modelEvent =  [
 		'02.01.2023',
 		'Парковая 10',
 		[],
-		'56.85930498828501',
-		'60.61140330780871',
+		'56.827311666120664',
+		'60.58080890820305',
 		'ближайшее'
 		
 	),
 	new Event(
+		2,
 		'Плоггинг',
 		'Плоггинг',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
@@ -255,12 +267,13 @@ const modelEvent =  [
 		'02.01.2023',
 		'Парковая 10',
 		[],
-		'56.85930498828501',
-		'60.61140330780871',
+		'56.85150498828501',
+		'60.33140330780871',
 		''
 		
 	),
 	new Event(
+		3,
 		'Субботник',
 		'Субботник',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
@@ -268,12 +281,13 @@ const modelEvent =  [
 		'02.01.2023',
 		'Парковая 10',
 		[],
-		'56.85930498828501',
+		'56.80930498828501',
 		'60.61140330780871',
 		''
 		
 	),
 	new Event(
+		4,
 		'Помощь заповедникам',
 		'Помощь заповедникам',
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
@@ -282,7 +296,7 @@ const modelEvent =  [
 		'Парковая 10',
 		[],
 		'56.85930498828501',
-		'60.61140330780871',
+		'60.60040330780870',
 		''
 		
 	),
@@ -361,3 +375,4 @@ filterEvent($plogging, 'Плоггинг')
 filterEvent($sortingGarbage, 'Сортировка мусора')
 filterEvent($cleaningDay, 'Субботник')
 filterEvent($assistance, 'Помощь заповедникам')
+
