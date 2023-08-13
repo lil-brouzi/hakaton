@@ -1,5 +1,7 @@
 //Yandex Map
+
 function initMap(coordinateX,coordinateY) {
+
 	let map = new ymaps.Map('map', {
 		center: [coordinateX, coordinateY],
 		zoom: 13
