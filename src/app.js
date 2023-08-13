@@ -18,21 +18,88 @@ function initMap(coordinateX,coordinateY) {
 }
 
 ymaps.ready(initMap);
+
+class Appeal {
+	constructor(hrefUser, id, hrefResponsible, status, name, description) {
+		this.hrefUser = hrefUser, 
+		this.id = id,
+		this.hrefResponsible = hrefResponsible,
+		this.status = status
+		this.name = name,
+		this.description = description
+	}
+
+	initCarouselAppeal() {
+		return `
+		<a class="carousel-event">
+			<h3 class="carousel-event__title">${this.name}</h3>
+			<div class="carousel-event__date">${this.status}</div>
+		</a>
+		`
+	}
+	
+}
+// класс статей 
+class Article {
+	constructor(id, name, description, datePublic) {
+		this.id = id, // номер статьи
+		this.name = name, // название
+		this.description = description // текст
+		this.datePublic = datePublic // дата публикации
+	}
+
+	initCarouselMyArticle() {
+		return `
+		<a class="carousel-event">
+			<h3 class="carousel-event__title">${this.name}</h3>
+			<div class="carousel-event__date">${this.datePublic}</div>
+		</a>
+		`
+	}
+	
+}
+// мои статьи подкласс
+class MyArticle extends Article {
+	constructor(id, name, description, datePublic) {
+		super(id, name, description, datePublic)
+	}
+
+	initCarouselMyArticle() {
+		return `
+		<a class="carousel-event">
+			<h3 class="carousel-event__title">${this.name}</h3>
+			<div class="carousel-event__date">${this.datePublic}</div>
+		</a>
+		`
+	}
+	
+}
 // класс событий
 class Event {
-    constructor(type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY) {
-        this.name = name,
-        this.description = description,
-        this.startDate = startDate,
-        this.lastDate = lastDate,
-		this.type = type,
-		this.address = address,
-		this.listParticipants = listParticipants,
-		this.coordinateX = coordinateX,
-		this.coordinateY = coordinateY
+    constructor(type, name, description, startDate, lastDate, address,  listParticipants, coordinateX, coordinateY, tag) {
+        this.name = name, // название события
+        this.description = description, //текст события
+        this.startDate = startDate, // дата начала
+        this.lastDate = lastDate, // дата конца
+		this.type = type, // тип
+		this.address = address, // адресс
+		this.listParticipants = listParticipants, // список участников
+		this.coordinateX = coordinateX, // координата х
+		this.coordinateY = coordinateY, // координата у
+		this.tag = tag // таг
+
            
     }
 	
+	initCarouselEvent() {
+		return `
+		<a class="carousel-event">
+			<div class="carousel-event__tag">${this.tag}</div>
+			<h3 class="carousel-event__title">${this.name}</h3>
+			<div class="carousel-event__date">${this.startDate} - ${this.lastDate}</div>
+		</a>
+		`
+	}
 
     initContentEvent() {
         return `
@@ -53,34 +120,25 @@ class Event {
 		</div>
 		`
     }
-
-	initCarouselEvent() {
-		return `
-			<a  class="carousel-event">
-				<h3 class="carousel-event__title">Название события</h3>
-				<div class="carousel-event__date">18.08.2023</div>
-			</a>
-		`
-	}
 }
 
 
-
+// класс юзер
 class User {
 	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
-		this.firstName = firstName,
-		this.lastName = lastName,
-		this.patronymic = patronymic,
-		this.age = age,
-		this.passportData = passportData,
-		this.avatar = avatar
+		this.firstName = firstName, // имя
+		this.lastName = lastName, // фамилия
+		this.patronymic = patronymic, // отчество
+		this.age = age, // лет
+		this.passportData = passportData, // пасспорт данные
+		this.avatar = avatar // аватар
 	}
 
 	toHTML() {
 		return `нет юзера`
 	}
 }
-
+// топ юзеры подкласс
 class TopUser extends User {
 	constructor(firstName, lastName, patronymic, age, passportData, avatar) {
 		super(firstName, lastName, patronymic, age, passportData, avatar)
@@ -97,6 +155,54 @@ class TopUser extends User {
 		`
 	}
 }
+// модель мои статьи
+const modelMyArticle = [
+	new MyArticle(
+		1, // ид
+		'Название статьи', // название
+		'статья', // текст
+		'01.01.2023' //дата публикации
+	),
+	new MyArticle(
+		1,
+		'Название статьи',
+		'статья',
+		'01.01.2023'
+	),
+	new MyArticle(
+		1,
+		'Название статьи',
+		'статья',
+		'01.01.2023'
+	)
+]
+// образения модель
+const modelAppeal = [
+	new Appeal(
+		'',
+		1,
+		'',
+		'отправлено',
+		'Название обращения',
+		''
+	),
+	new Appeal(
+		'',
+		2,
+		'',
+		'отправлено',
+		'Название обращения',
+		''
+	),
+	new Appeal(
+		'',
+		3,
+		'',
+		'отправлено',
+		'Название обращения',
+		''
+	)
+]
 // Создание моделей событий
 const modelEvent =  [ 
     new Event(
@@ -108,7 +214,8 @@ const modelEvent =  [
 		'Парковая 10',
 		[],
 		'56.85930498828501',
-		'60.61140330780871'
+		'60.61140330780871',
+		''
 		
 	),
 	new Event(
@@ -120,7 +227,8 @@ const modelEvent =  [
 		'Парковая 10',
 		[],
 		'56.85930498828501',
-		'60.61140330780871'
+		'60.61140330780871',
+		''
 		
 	),
 	new Event(
@@ -132,7 +240,8 @@ const modelEvent =  [
 		'Парковая 10',
 		[],
 		'56.85930498828501',
-		'60.61140330780871'
+		'60.61140330780871',
+		''
 		
 	),
 	new Event(
@@ -144,11 +253,12 @@ const modelEvent =  [
 		'Парковая 10',
 		[],
 		'56.85930498828501',
-		'60.61140330780871'
+		'60.61140330780871',
+		''
 		
 	),
 ]
-
+// модель топ юзеров
 const modelTopUser = [
 	new TopUser('Иван', 'Иванов', 'Иванович', '21', [], '/src/assets/eventimg.png'),
 	new TopUser('Иван', "Иванов", 'Иванович', '21', [], '/src/assets/eventimg.png'),
@@ -181,6 +291,29 @@ modelEvent.forEach(block => {
 	}
 })
 
+const $carouselEvents = document.querySelector('#carousel-events')
+
+modelEvent.forEach(block => {
+	if ($carouselEvents != null){
+		$carouselEvents.insertAdjacentHTML('beforeend', block.initCarouselEvent())
+	}
+})
+
+const $carouselAppeal = document.querySelector('#carousel-appeals')
+
+modelAppeal.forEach(block => {
+	if ($carouselAppeal != null){
+		$carouselAppeal.insertAdjacentHTML('beforeend', block.initCarouselAppeal())
+	}
+})
+
+const $carouselMyArticle = document.querySelector('#carousel-myArticles')
+
+modelMyArticle.forEach(block => {
+	if ($carouselMyArticle != null){
+		$carouselMyArticle.insertAdjacentHTML('beforeend', block.initCarouselMyArticle())
+	}
+})
 
 function filterEvent(sort, type) {
 	sort.addEventListener('click', () => {

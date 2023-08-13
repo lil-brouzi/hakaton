@@ -408,7 +408,6 @@ a {
 	justify-content: space-between;
 	align-items: center;
 	gap: 25px;
-	margin-bottom: 100px;
 }
 
 .carousel {
@@ -508,6 +507,9 @@ a {
 	border-radius: 50px;
 	border: 1px solid #000;
 	cursor: pointer;
+	margin-top: 50px;
+	margin-bottom: 100px;
+
 }
 
 .flex-center {
@@ -516,3 +518,53 @@ a {
 	justify-content: center;
 	align-items: center;
 }
+
+.header-aroud {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-aroud .header__title {
+	margin: 0;
+}
+
+.create-form {
+	width: 100%;
+	height: 555px;
+	margin-bottom: 100px;
+	border-radius: 20px;
+	border: 1px solid #000;
+	padding: 40px;
+}
+
+.create-name {
+	width: 100%;
+	height: 100px;
+	border-bottom: solid #000 2px;
+	outline: none;
+}
+
+.create-name::-webkit-input-placeholder {color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.create-name::-moz-placeholder          {color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.create-name::-moz-placeholder           {color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
+.create-name::-ms-input-placeholder      {color: #A7A7A7;
+	font-family: Montserrat;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;}
