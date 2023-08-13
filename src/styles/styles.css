@@ -535,6 +535,7 @@ a {
 	border-radius: 20px;
 	border: 1px solid #000;
 	padding: 40px;
+	
 }
 
 .create-name {
@@ -542,29 +543,42 @@ a {
 	height: 100px;
 	border-bottom: solid #000 2px;
 	outline: none;
+	font-size: 32px;
+	font-weight: 400;
 }
 
-.create-name::-webkit-input-placeholder {color: #A7A7A7;
+.create-form::-webkit-input-placeholder {color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-name::-moz-placeholder          {color: #A7A7A7;
+.create-form::-moz-placeholder          {color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-name::-moz-placeholder           {color: #A7A7A7;
+.create-form::-moz-placeholder           {color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
-.create-name::-ms-input-placeholder      {color: #A7A7A7;
+.create-form::-ms-input-placeholder      {color: #A7A7A7;
 	font-family: Montserrat;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;}
+
+.create-text {
+	max-width: 100%;
+	min-width: 100%;
+	max-height: 50%;
+	min-height: 50%;
+	margin-top: 40px;
+	outline: none;
+	font-size: 32px;
+	font-weight: 400;
+}

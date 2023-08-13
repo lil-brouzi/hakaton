@@ -93,7 +93,7 @@ class Event {
 	
 	initCarouselEvent() {
 		return `
-		<a class="carousel-event">
+		<a id='${this.tag === 'ближайшее' ? 'nearest' : ''}' class="carousel-event">
 			<div class="carousel-event__tag">${this.tag}</div>
 			<h3 class="carousel-event__title">${this.name}</h3>
 			<div class="carousel-event__date">${this.startDate} - ${this.lastDate}</div>
@@ -215,7 +215,7 @@ const modelEvent =  [
 		[],
 		'56.85930498828501',
 		'60.61140330780871',
-		''
+		'ближайшее'
 		
 	),
 	new Event(
