@@ -1,5 +1,5 @@
 //Yandex Map
-
+const map = document.querySelector('#map')
 function initMap(coordinateX,coordinateY) {
 
 	let map = new ymaps.Map('map', {
@@ -16,6 +16,7 @@ function initMap(coordinateX,coordinateY) {
 	})
 	map.geoObjects.add(placemark)
 }
+
 ymaps.ready(initMap);
 // класс событий
 class Event {
