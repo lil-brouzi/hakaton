@@ -416,6 +416,7 @@ a {
 	align-items: center;
 	gap: 25px;
 	overflow: hidden;
+	width: 100%;
 }
 
 .carousel-event {
@@ -429,6 +430,7 @@ a {
 	align-items: center;
 	flex-direction: column;
 	gap: 5px;
+	padding: 10px;
 }
 .carousel-event__date {
 	color: #A7A7A7;
@@ -437,8 +439,9 @@ a {
 }
 .carousel-event h3 {
 	color: #323232;
-	font-size: 24px;
+	font-size: 30px;
 	font-weight: 700;
+	text-align: center;
 }
 
 #nearest {
