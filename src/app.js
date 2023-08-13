@@ -136,7 +136,9 @@ class Event {
 			}, {
 
 			})
+			
 			map.geoObjects.add(placemark)
+			placemark.balloon.open();
 		});
         return `
 		<div class="content-event">
@@ -300,6 +302,20 @@ const modelEvent =  [
 		''
 		
 	),
+	new Event(
+		5,
+		'Другое',
+		'Помощь заповедникам',
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad quae labore veniam autem omnis natus exercitationem maxime modi facilis totam?',
+		'01.01.2023',
+		'02.01.2023',
+		'Парковая 10',
+		[],
+		'56.85930498828501',
+		'60.60040330780870',
+		''
+		
+	),
 ]
 
 // модель топ юзеров
@@ -370,6 +386,18 @@ function filterEvent(sort, type) {
 	})
 }
 
+document.querySelector('#other').addEventListener('click', () => {
+	$contentEvents.innerHTML = ''
+	modelEvent.forEach(block => {
+		const noplog = block.type != 'Плоггинг'
+		const nosort = block.type != 'Сортировка мусора'
+		const noclean = block.type != 'Субботник'
+		const noassisting = block.type != 'Помощь заповедникам'
+		if (noplog && nosort && noclean && noassisting && $contentEvents != null) {
+			$contentEvents.insertAdjacentHTML('beforeend', block.initContentEvent())
+		}
+	})
+})
 
 filterEvent($plogging, 'Плоггинг')
 filterEvent($sortingGarbage, 'Сортировка мусора')
